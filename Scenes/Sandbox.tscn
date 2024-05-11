@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://2r2xorepwlip"]
+
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Player.tscn" id="1_ndiqr"]
+[ext_resource type="Texture2D" uid="uid://ba7k1j4k4v365" path="res://Assets/DarkPrototypeTexture.png" id="2_7sl6d"]
+[ext_resource type="PackedScene" uid="uid://cd838utlh5bjd" path="res://Scenes/CatRegion.tscn" id="3_8qn4g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
+
+[sub_resource type="Sky" id="Sky_edr0k"]
+sky_material = SubResource("ProceduralSkyMaterial_yxtyg")
+
+[sub_resource type="Environment" id="Environment_k5onh"]
+background_mode = 2
+sky = SubResource("Sky_edr0k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p85vg"]
+albedo_texture = ExtResource("2_7sl6d")
+metallic_specular = 0.0
+roughness = 0.1
+roughness_texture = ExtResource("2_7sl6d")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2pcf"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ch6xj"]
+material = SubResource("StandardMaterial3D_n2pcf")
+size = Vector2(3.095, 3.15)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k5onh")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.678961, 0.262875, -0.685499, -0.027831, 0.923814, 0.38183, 0.733646, 0.278326, -0.619918, 0, 6.83834, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ndiqr")]
+
+[node name="Platform" type="Node3D" parent="."]
+
+[node name="Floor3" type="CSGBox3D" parent="Platform"]
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = SubResource("StandardMaterial3D_p85vg")
+
+[node name="CatRegion" parent="." instance=ExtResource("3_8qn4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.520572, 1.05552, -2.77127)
+opened = true
+
+[node name="Wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116294, 1.03442, -3.77131)
+mesh = SubResource("QuadMesh_ch6xj")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.400765, 0, 0.916181, 0, 1, 0, -0.916181, 0, 0.400765, -1.79555, 0.54463, -3.01639)
+mesh = SubResource("QuadMesh_ch6xj")
+skeleton = NodePath("../Wall1")
+
+[node name="Wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.833336, 0, -0.552766, 0, 1, 0, 0.552766, 0, 0.833336, 2.39637, 1.08926, -3.17265)
+mesh = SubResource("QuadMesh_ch6xj")
+skeleton = NodePath("../Wall1")
+
+[node name="Wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.000690626, 1.92, 0.00163617, -0.263427, -0.00171546, 1.90184, 1.90184, 0.000459608, 0.263428, 0.583845, 0.482328, -2.80116)
+mesh = SubResource("QuadMesh_ch6xj")
+skeleton = NodePath("../Wall1")
