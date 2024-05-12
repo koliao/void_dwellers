@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://djlenw7dytuwj"]
+
+[ext_resource type="Texture2D" uid="uid://co4283gihq8en" path="res://Assets/food_1.png" id="1_77bxo"]
+[ext_resource type="Script" path="res://Scenes/FoodContainer.gd" id="1_tpd8r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vm8hb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48n5l"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wl46w"]
+radius = 1.03017
+
+[node name="FoodContainer" type="Node3D"]
+script = ExtResource("1_tpd8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transparency = 0.85
+mesh = SubResource("BoxMesh_vm8hb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_48n5l")
+
+[node name="FoodIcon" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232122, 0)
+billboard = 1
+texture_filter = 2
+texture = ExtResource("1_77bxo")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_wl46w")
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

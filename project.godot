@@ -87,3 +87,7 @@ look_left={
 [layer_names]
 
 3d_physics/layer_5="CatRegion"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
