@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://llmqxcwrd7wk"]
+
+[ext_resource type="PackedScene" uid="uid://cnbqr7jhhgt13" path="res://Scenes/Meshes/Trashbin/trashbin.gltf" id="1_djlhv"]
+[ext_resource type="PackedScene" uid="uid://besxa8f5nq4vd" path="res://Scenes/DarkSpots/DarkHollowBox.tscn" id="2_yjwwt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srdrp"]
+size = Vector3(0.39447, 0.486389, 0.4)
+
+[node name="Trashbin" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="trashbin" parent="." instance=ExtResource("1_djlhv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0588806, 0.256805, -1.49012e-08)
+shape = SubResource("BoxShape3D_srdrp")
+
+[node name="DarkHollowBox" parent="." instance=ExtResource("2_yjwwt")]
+transform = Transform3D(0.239414, 0, 0, 0, 0.237893, 0, 0, 0, 0.243509, -0.0628306, 0.366169, 0)

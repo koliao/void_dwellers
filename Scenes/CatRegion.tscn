@@ -7,7 +7,7 @@
 viewport_path = NodePath("CatEyes")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ep13j"]
-radius = 2.70908
+radius = 1.09434
 
 [node name="CatRegion" type="Node3D"]
 script = ExtResource("1_plv5s")

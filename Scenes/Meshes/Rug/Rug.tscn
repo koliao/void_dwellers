@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://br74o7inu38dq"]
+
+[ext_resource type="PackedScene" uid="uid://cy3kc6nslhdfe" path="res://Scenes/Meshes/Rug/rug.gltf" id="1_04l8v"]
+[ext_resource type="Shader" path="res://Scenes/DarkSpots/DarkBoolshelve.gdshader" id="2_3v5mj"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_a7v7q"]
+map_width = 4
+map_depth = 3
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0.5, 0.5, 0, 0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vk4df"]
+render_priority = 0
+shader = ExtResource("2_3v5mj")
+shader_parameter/width = 0.685
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_485es"]
+
+[node name="Rug" type="Node3D"]
+
+[node name="rug" parent="." instance=ExtResource("1_04l8v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="rug"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rug/StaticBody3D"]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, -0.0222425, -1.44336)
+shape = SubResource("HeightMapShape3D_a7v7q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.958748, 0, -3.75263e-08, 0, 1, 0, 8.38164e-08, 0, -0.42925, 0, -0.00174373, -1.41971)
+material_override = SubResource("ShaderMaterial_vk4df")
+mesh = SubResource("PlaneMesh_485es")

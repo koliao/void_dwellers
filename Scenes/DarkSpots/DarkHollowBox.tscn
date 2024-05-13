@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://besxa8f5nq4vd"]
+
+[ext_resource type="Shader" path="res://Scenes/DarkSpots/DarkHollowBox.gdshader" id="1_0yngc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwrje"]
+render_priority = -1
+shader = ExtResource("1_0yngc")
+shader_parameter/width = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_7rx57"]
+material = SubResource("ShaderMaterial_fwrje")
+flip_faces = true
+
+[node name="DarkHollowBox" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_7rx57")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://wdbunfrnrn55"]
+[gd_scene load_steps=15 format=3 uid="uid://wdbunfrnrn55"]
 
 [ext_resource type="Texture2D" uid="uid://bag65l2w8xetm" path="res://Assets/Textures/6/6_normal.bmp" id="1_muxu0"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Player.tscn" id="1_wccs8"]
 [ext_resource type="PackedScene" uid="uid://bjhevfes35y0e" path="res://Scenes/Meshes/Library/TallLibrary.tscn" id="2_oatga"]
 [ext_resource type="Material" uid="uid://b0ky8vek073ks" path="res://Assets/Materials/LibraryWall.tres" id="4_ou6si"]
 [ext_resource type="PackedScene" uid="uid://cd838utlh5bjd" path="res://Scenes/CatRegion.tscn" id="5_mkue8"]
+[ext_resource type="PackedScene" uid="uid://bcc02g5ia16d" path="res://Scenes/DarkSpots/DarkBoolshelve.tscn" id="6_evkmb"]
+[ext_resource type="PackedScene" uid="uid://br74o7inu38dq" path="res://Scenes/Meshes/Rug/Rug.tscn" id="7_fcn5c"]
+[ext_resource type="PackedScene" uid="uid://llmqxcwrd7wk" path="res://Scenes/Meshes/Trashbin/Trashbin.tscn" id="8_q3cwp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blxpw"]
 diffuse_mode = 3
@@ -24,14 +27,14 @@ background_mode = 2
 sky = SubResource("Sky_yqgx8")
 ambient_light_source = 3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2pcf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41bsy"]
 shading_mode = 0
 disable_ambient_light = true
 disable_fog = true
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_45sir"]
-material = SubResource("StandardMaterial3D_n2pcf")
+material = SubResource("StandardMaterial3D_41bsy")
 size = Vector2(3.095, 3.15)
 
 [node name="Library" type="Node3D"]
@@ -964,31 +967,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
 [node name="TallLibrary6" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
 
-[node name="Wall" type="CSGCombiner3D" parent="."]
+[node name="Wall1" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.22552, 0, 0, 0, 1, 11.7635, 22.5522, 4.76226)
 material_override = ExtResource("4_ou6si")
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Wall"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall1"]
 use_collision = true
 size = Vector3(0.32605, 45.9828, 137.848)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Wall"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, -36.8235)
 operation = 2
 size = Vector3(1, 20.099, 7.29468)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Wall"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, -13.2509)
 operation = 2
 size = Vector3(1, 20.099, 7.29468)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Wall"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, 10.9632)
 operation = 2
 size = Vector3(1, 20.099, 7.29468)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Wall"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, 35.2443)
 operation = 2
 size = Vector3(1, 20.099, 7.29468)
@@ -1021,7 +1024,7 @@ use_collision = true
 size = Vector3(0.32605, 45.9828, 137.848)
 
 [node name="CatRegion" parent="." instance=ExtResource("5_mkue8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.0331718, 1.19759, 0.107509)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.24138, 0.85904, 3.11794)
 
 [node name="Wall5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.31915e-08, 0, 1, 0, 0.225425, 0, -0.988106, 0, -4.37114e-08, -0.0595735, 1.13539, -0.0438297)
@@ -1029,6 +1032,22 @@ mesh = SubResource("QuadMesh_45sir")
 skeleton = NodePath("../Wall1")
 
 [node name="Wall6" type="MeshInstance3D" parent="."]
-transform = Transform3D(-5.32907e-15, -0.113475, -2.98023e-08, -4.31915e-08, -3.7505e-09, 1, -0.988106, 6.40729e-24, -4.37114e-08, 0.0893935, 0.986711, -0.0438297)
+transform = Transform3D(-5.32907e-15, -0.107226, -2.98023e-08, -4.31915e-08, -3.54397e-09, 1, -0.988106, 6.05445e-24, -4.37114e-08, 0.0893935, 0.939445, -0.0438297)
 mesh = SubResource("QuadMesh_45sir")
 skeleton = NodePath("../Wall1")
+
+[node name="DarkBoolshelve" parent="." instance=ExtResource("6_evkmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945076, -3.32787)
+
+[node name="DarkBoolshelve2" parent="." instance=ExtResource("6_evkmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85936, 1.57441, -0.0359553)
+
+[node name="Rug" parent="." instance=ExtResource("7_fcn5c")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.397, 0.137686, -0.172343)
+
+[node name="CatRegion" parent="Rug" instance=ExtResource("5_mkue8")]
+transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0.0662956, 0.0826674, -1.61559)
+interaction_radius = 1.36
+
+[node name="Trashbin" parent="." instance=ExtResource("8_q3cwp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.15697, 0.111, 3.09178)

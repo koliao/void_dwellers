@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcc02g5ia16d"]
+
+[ext_resource type="Shader" path="res://Scenes/DarkSpots/DarkBoolshelve.gdshader" id="1_dtjgt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8s2e"]
+render_priority = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8p1tc"]
+material = SubResource("StandardMaterial3D_l8s2e")
+size = Vector2(3.095, 3.15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4q4xx"]
+render_priority = 0
+shader = ExtResource("1_dtjgt")
+shader_parameter/width = 0.3
+
+[node name="DarkBoolshelve" type="Node3D"]
+
+[node name="BackSide" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.31915e-08, 0, 1, 0, 0.178477, 0, -0.988106, 0, -4.37114e-08, -0.06, 0.265204, -0.044)
+mesh = SubResource("QuadMesh_8p1tc")
+skeleton = NodePath("../Wall1")
+
+[node name="BottomSide" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.31915e-08, -0.107226, -4.37114e-08, 0, -4.68701e-09, 1, -0.988106, 4.68701e-09, 1.91069e-15, 0.104421, -0.00572485, -0.0438297)
+material_override = SubResource("ShaderMaterial_4q4xx")
+mesh = SubResource("QuadMesh_8p1tc")
+skeleton = NodePath("../Wall1")
+
+[node name="BottomSide2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.31915e-08, -0.107226, -4.37114e-08, 8.6383e-08, 4.687e-09, -1, 0.988106, -4.68701e-09, 8.74228e-08, 0.104421, 0.483341, -0.0438297)
+material_override = SubResource("ShaderMaterial_4q4xx")
+mesh = SubResource("QuadMesh_8p1tc")
+skeleton = NodePath("../Wall1")
+
+[node name="LeftSide" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.83859e-09, -0.107226, -1.50996e-07, -0.179326, -4.68701e-09, -8.74228e-08, 1.56772e-08, 1.61907e-08, -1, 0.100607, 0.272356, 1.47933)
+material_override = SubResource("ShaderMaterial_4q4xx")
+mesh = SubResource("QuadMesh_8p1tc")
+skeleton = NodePath("../Wall1")
+
+[node name="RightSide" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.35141e-08, -0.107, -1.50996e-07, 0.179, 8.07828e-09, 1.41834e-14, -4.98246e-16, -1.61566e-08, 1, 0.101, 0.272, -1.408)
+material_override = SubResource("ShaderMaterial_4q4xx")
+mesh = SubResource("QuadMesh_8p1tc")
+skeleton = NodePath("../Wall1")
