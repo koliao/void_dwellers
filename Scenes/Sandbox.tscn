@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Player.tscn" id="1_ndiqr"]
-[ext_resource type="Texture2D" uid="uid://ba7k1j4k4v365" path="res://Assets/DarkPrototypeTexture.png" id="2_7sl6d"]
 [ext_resource type="PackedScene" uid="uid://cd838utlh5bjd" path="res://Scenes/CatRegion.tscn" id="3_8qn4g"]
+[ext_resource type="PackedScene" uid="uid://bjhevfes35y0e" path="res://Scenes/Meshes/Library/TallLibrary.tscn" id="4_03tt2"]
 [ext_resource type="PackedScene" uid="uid://djlenw7dytuwj" path="res://Scenes/FoodContainer.tscn" id="4_d2n7d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
@@ -14,21 +14,18 @@ sky_material = SubResource("ProceduralSkyMaterial_yxtyg")
 background_mode = 2
 sky = SubResource("Sky_edr0k")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p85vg"]
-albedo_texture = ExtResource("2_7sl6d")
-metallic_specular = 0.0
-roughness = 0.1
-roughness_texture = ExtResource("2_7sl6d")
-uv1_triplanar = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq8hs"]
+diffuse_mode = 3
+albedo_color = Color(0.427451, 0.223529, 0.0470588, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2pcf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koldw"]
 shading_mode = 0
 disable_ambient_light = true
 disable_fog = true
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ch6xj"]
-material = SubResource("StandardMaterial3D_n2pcf")
+material = SubResource("StandardMaterial3D_koldw")
 size = Vector2(3.095, 3.15)
 
 [node name="World" type="Node3D"]
@@ -45,9 +42,10 @@ shadow_enabled = true
 [node name="Platform" type="Node3D" parent="."]
 
 [node name="Floor3" type="CSGBox3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1975, 0, -13.3542)
+material_override = SubResource("StandardMaterial3D_fq8hs")
 use_collision = true
-size = Vector3(20, 0.5, 20)
-material = SubResource("StandardMaterial3D_p85vg")
+size = Vector3(52.395, 0.5, 46.7085)
 
 [node name="CatRegion" parent="." instance=ExtResource("3_8qn4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.943415, 0.991156, -2.7471)
@@ -74,8 +72,13 @@ skeleton = NodePath("../Wall1")
 
 [node name="WatermelonFoodContainer" parent="." instance=ExtResource("4_d2n7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.6223)
-food_type = 0
 
 [node name="StrawberryFoodContainer2" parent="." instance=ExtResource("4_d2n7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04146, 0, 4.6223)
 food_type = 1
+
+[node name="TallLibrary" parent="." instance=ExtResource("4_03tt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5871, 0.250001, -2.86645)
+
+[node name="TallLibrary2" parent="." instance=ExtResource("4_03tt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.94, 0.25, -4.80665)

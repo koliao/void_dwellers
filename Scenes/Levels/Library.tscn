@@ -1,0 +1,1034 @@
+[gd_scene load_steps=12 format=3 uid="uid://wdbunfrnrn55"]
+
+[ext_resource type="Texture2D" uid="uid://bag65l2w8xetm" path="res://Assets/Textures/6/6_normal.bmp" id="1_muxu0"]
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Player.tscn" id="1_wccs8"]
+[ext_resource type="PackedScene" uid="uid://bjhevfes35y0e" path="res://Scenes/Meshes/Library/TallLibrary.tscn" id="2_oatga"]
+[ext_resource type="Material" uid="uid://b0ky8vek073ks" path="res://Assets/Materials/LibraryWall.tres" id="4_ou6si"]
+[ext_resource type="PackedScene" uid="uid://cd838utlh5bjd" path="res://Scenes/CatRegion.tscn" id="5_mkue8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blxpw"]
+diffuse_mode = 3
+albedo_color = Color(0.286275, 0.254902, 0.34902, 1)
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("1_muxu0")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ju5li"]
+
+[sub_resource type="Sky" id="Sky_yqgx8"]
+sky_material = SubResource("ProceduralSkyMaterial_ju5li")
+
+[sub_resource type="Environment" id="Environment_dp7kp"]
+background_mode = 2
+sky = SubResource("Sky_yqgx8")
+ambient_light_source = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2pcf"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_45sir"]
+material = SubResource("StandardMaterial3D_n2pcf")
+size = Vector2(3.095, 3.15)
+
+[node name="Library" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.10358)
+material_override = SubResource("StandardMaterial3D_blxpw")
+use_collision = true
+size = Vector3(45, 0.222, 135.746)
+
+[node name="Player" parent="." instance=ExtResource("1_wccs8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48572, 3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dp7kp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.245062, 0.897572, 0.366483, -0.42016, -0.242345, 0.874491, 0.873734, -0.368286, 0.317734, -24.2938, 62.5094, 0)
+light_color = Color(0.521569, 0.419608, 0.196078, 1)
+light_energy = 6.221
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+
+[node name="Libraries" type="Node3D" parent="."]
+
+[node name="LibraryHall" type="Node3D" parent="Libraries"]
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall2" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall2/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall2/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall2/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall2/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall2/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall2/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall2"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall2/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall2/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall2/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall2/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall2/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall2/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall3" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86075, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall3/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall3/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall3/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall3/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall3/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall3/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall3"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall3/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall3/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall3/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall3/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall3/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall3/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall4" type="Node3D" parent="Libraries"]
+transform = Transform3D(0.999974, -0.000167763, 0.00725987, 0.000142017, 0.999994, 0.00354534, -0.00726042, -0.00354422, 0.999967, 5.86075, 0, 24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall4"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall4/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall4/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall4/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall4/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall4/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall4/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall4"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall4/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall4/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall4/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall4/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall4/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall4/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall5" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.854, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall5"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall5/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall5/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall5/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall5/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall5/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall5/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall5"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall5/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall5/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall5/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall5/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall5/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall5/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall6" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.854, 0, 24.068)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall6"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall6/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall6/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall6/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall6/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall6/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall6/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall6"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall6/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall6/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall6/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall6/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall6/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall6/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall7" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall7"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall7/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall7/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall7/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall7/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall7/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall7/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall7"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall7/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall7/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall7/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall7/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall7/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall7/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall8" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86075, 0, -24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall8"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall8/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall8/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall8/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall8/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall8/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall8/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall8"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall8/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall8/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall8/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall8/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall8/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall8/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall9" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.854, 0, -24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall9"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall9/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall9/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall9/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall9/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall9/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall9/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall9"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall9/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall9/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall9/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall9/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall9/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall9/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall10" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 48)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall10"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall10/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall10/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall10/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall10/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall10/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall10/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall10"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall10/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall10/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall10/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall10/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall10/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall10/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall11" type="Node3D" parent="Libraries"]
+transform = Transform3D(0.999974, -0.000167763, 0.00725987, 0.000142017, 0.999994, 0.00354534, -0.00726042, -0.00354422, 0.999967, 5.86075, 0, 48)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall11"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall11/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall11/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall11/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall11/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall11/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall11/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall11"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall11/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall11/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall11/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall11/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall11/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall11/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall12" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.854, 0, 48.068)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall12"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall12/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall12/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall12/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall12/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall12/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall12/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall12"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall12/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall12/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall12/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall12/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall12/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall12/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall13" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.713, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall13"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall13/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall13/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall13/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall13/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall13/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall13/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall13"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall13/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall13/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall13/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall13/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall13/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall13/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall14" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.713, 0, 24.068)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall14"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall14/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall14/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall14/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall14/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall14/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall14/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall14"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall14/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall14/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall14/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall14/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall14/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall14/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall15" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.713, 0, -24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall15"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall15/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall15/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall15/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall15/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall15/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall15/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall15"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall15/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall15/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall15/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall15/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall15/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall15/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall16" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.713, 0, 48.068)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall16"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall16/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall16/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall16/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall16/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall16/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall16/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall16"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall16/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall16/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall16/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall16/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall16/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall16/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall17" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5782, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall17"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall17/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall17/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall17/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall17/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall17/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall17/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall17"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall17/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall17/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall17/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall17/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall17/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall17/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall18" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5782, 0, 24.068)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall18"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall18/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall18/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall18/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall18/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall18/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall18/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall18"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall18/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall18/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall18/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall18/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall18/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall18/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall19" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5782, 0, -24)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall19"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall19/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall19/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall19/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall19/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall19/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall19/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall19"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+metadata/_edit_group_ = true
+
+[node name="TallLibrary" parent="Libraries/LibraryHall19/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall19/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall19/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall19/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall19/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall19/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryHall20" type="Node3D" parent="Libraries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5782, 0, 48.068)
+metadata/_edit_group_ = true
+
+[node name="LibraryRow" type="Node3D" parent="Libraries/LibraryHall20"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall20/LibraryRow" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall20/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall20/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall20/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall20/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall20/LibraryRow" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="LibraryRow3" type="Node3D" parent="Libraries/LibraryHall20"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5.063, 0, -16.5)
+
+[node name="TallLibrary" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
+
+[node name="TallLibrary2" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64629)
+
+[node name="TallLibrary3" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.28368)
+
+[node name="TallLibrary4" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95665)
+
+[node name="TallLibrary5" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
+
+[node name="TallLibrary6" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
+
+[node name="Wall" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.22552, 0, 0, 0, 1, 11.7635, 22.5522, 4.76226)
+material_override = ExtResource("4_ou6si")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall"]
+use_collision = true
+size = Vector3(0.32605, 45.9828, 137.848)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, -36.8235)
+operation = 2
+size = Vector3(1, 20.099, 7.29468)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, -13.2509)
+operation = 2
+size = Vector3(1, 20.099, 7.29468)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, 10.9632)
+operation = 2
+size = Vector3(1, 20.099, 7.29468)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.46974, 35.2443)
+operation = 2
+size = Vector3(1, 20.099, 7.29468)
+
+[node name="Wall2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 3.1814, 0, 0, 0, 1, -18.2868, 22.5522, 4.76226)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22947, 0)
+use_collision = true
+size = Vector3(0.32605, 46.4417, 137.848)
+
+[node name="Wall4" type="CSGCombiner3D" parent="."]
+transform = Transform3D(4.15098e-09, 0, -0.23117, 0, 3.1814, 0, -0.0949634, 0, -1.01047e-08, -2.82242, 22.5522, -61.5548)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall4"]
+transform = Transform3D(1, 0, 6.39488e-14, 0, 0.999998, 0, 1.24345e-14, 0, 1, 0, 0.22947, 21.5588)
+use_collision = true
+size = Vector3(0.32605, 46.4417, 219.943)
+
+[node name="Wall3" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1.48662, -0.631787, 0, 1.86166, 0.504512, 0, 0, 0, 1, -1.96208, 83.7064, 6.47361)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall3"]
+transform = Transform3D(0.89968, 0, 0, 2.38419e-07, 1.12563, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+size = Vector3(0.32605, 45.9828, 137.848)
+
+[node name="CatRegion" parent="." instance=ExtResource("5_mkue8")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.0331718, 1.19759, 0.107509)
+
+[node name="Wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.31915e-08, 0, 1, 0, 0.225425, 0, -0.988106, 0, -4.37114e-08, -0.0595735, 1.13539, -0.0438297)
+mesh = SubResource("QuadMesh_45sir")
+skeleton = NodePath("../Wall1")
+
+[node name="Wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.32907e-15, -0.113475, -2.98023e-08, -4.31915e-08, -3.7505e-09, 1, -0.988106, 6.40729e-24, -4.37114e-08, 0.0893935, 0.986711, -0.0438297)
+mesh = SubResource("QuadMesh_45sir")
+skeleton = NodePath("../Wall1")

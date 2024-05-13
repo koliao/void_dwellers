@@ -15,7 +15,7 @@ script = ExtResource("1_tpd8r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-transparency = 0.85
+transparency = 0.8
 mesh = SubResource("BoxMesh_vm8hb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -27,6 +27,7 @@ shape = SubResource("BoxShape3D_48n5l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232122, 0)
 billboard = 1
 texture_filter = 2
+render_priority = -1
 texture = ExtResource("1_77bxo")
 
 [node name="Area3D" type="Area3D" parent="MeshInstance3D"]

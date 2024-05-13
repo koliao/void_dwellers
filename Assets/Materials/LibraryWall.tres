@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0ky8vek073ks"]
+
+[ext_resource type="Texture2D" uid="uid://c82jhrvi40l6d" path="res://Assets/Textures/9_normal.bmp" id="1_sp24h"]
+
+[resource]
+normal_texture = ExtResource("1_sp24h")
+uv1_scale = Vector3(0.14, 0.14, 0.14)
+uv1_triplanar = true
