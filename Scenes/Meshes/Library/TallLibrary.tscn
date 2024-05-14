@@ -8,6 +8,17 @@
 
 [node name="IndividualLibrary2" parent="." instance=ExtResource("1_fdtxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37986, 0)
+fill_row_1 = false
+fill_row_3 = false
+fill_row_4 = false
+fill_row_6 = false
 
 [node name="IndividualLibrary3" parent="." instance=ExtResource("1_fdtxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75977, 0)
+fill_row_1 = false
+fill_row_2 = false
+fill_row_3 = false
+fill_row_4 = false
+fill_row_5 = false
+fill_row_6 = false
+fill_row_7 = false

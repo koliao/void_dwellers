@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7hh24j8eh2m5"]
+[gd_scene load_steps=5 format=3 uid="uid://c7hh24j8eh2m5"]
 
 [ext_resource type="PackedScene" uid="uid://dmclhpeg6qrn0" path="res://Scenes/Meshes/Library/library.gltf" id="1_5bwiu"]
+[ext_resource type="Script" path="res://Scenes/Meshes/Library/IndividualLibrary.gd" id="1_qhpyr"]
+[ext_resource type="PackedScene" uid="uid://baoxu2i47bu6y" path="res://Scenes/Meshes/Library/BookshelveRow.tscn" id="2_86pr2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mqqf3"]
 size = Vector3(0.393127, 2.3858, 1.61461)
 
 [node name="IndividualLibrary" type="Node3D"]
+script = ExtResource("1_qhpyr")
 
 [node name="library" parent="." instance=ExtResource("1_5bwiu")]
 
@@ -14,3 +17,24 @@ size = Vector3(0.393127, 2.3858, 1.61461)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="library/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00308228, 1.1871, 0.00179291)
 shape = SubResource("BoxShape3D_mqqf3")
+
+[node name="row_1" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 2.03369, 0.623761)
+
+[node name="row_2" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 1.72488, 0.623761)
+
+[node name="row_3" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 1.41607, 0.623761)
+
+[node name="row_4" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 1.10096, 0.623761)
+
+[node name="row_5" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 0.786604, 0.623761)
+
+[node name="row_6" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 0.47225, 0.623761)
+
+[node name="row_7" parent="." instance=ExtResource("2_86pr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0185147, 0.138248, 0.623761)

@@ -90,4 +90,5 @@ look_left={
 
 [rendering]
 
+textures/lossless_compression/force_png=true
 environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)

@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://wdbunfrnrn55"]
+[gd_scene load_steps=17 format=3 uid="uid://wdbunfrnrn55"]
 
 [ext_resource type="Texture2D" uid="uid://bag65l2w8xetm" path="res://Assets/Textures/6/6_normal.bmp" id="1_muxu0"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Player.tscn" id="1_wccs8"]
 [ext_resource type="PackedScene" uid="uid://bjhevfes35y0e" path="res://Scenes/Meshes/Library/TallLibrary.tscn" id="2_oatga"]
 [ext_resource type="Material" uid="uid://b0ky8vek073ks" path="res://Assets/Materials/LibraryWall.tres" id="4_ou6si"]
 [ext_resource type="PackedScene" uid="uid://cd838utlh5bjd" path="res://Scenes/CatRegion.tscn" id="5_mkue8"]
-[ext_resource type="PackedScene" uid="uid://bcc02g5ia16d" path="res://Scenes/DarkSpots/DarkBoolshelve.tscn" id="6_evkmb"]
 [ext_resource type="PackedScene" uid="uid://br74o7inu38dq" path="res://Scenes/Meshes/Rug/Rug.tscn" id="7_fcn5c"]
 [ext_resource type="PackedScene" uid="uid://llmqxcwrd7wk" path="res://Scenes/Meshes/Trashbin/Trashbin.tscn" id="8_q3cwp"]
+[ext_resource type="PackedScene" uid="uid://dnguid4c32um1" path="res://Scenes/Meshes/Couch/Couch.tscn" id="9_ifm8p"]
+[ext_resource type="PackedScene" uid="uid://besxa8f5nq4vd" path="res://Scenes/DarkSpots/DarkHollowBox.tscn" id="10_ceydk"]
+[ext_resource type="PackedScene" uid="uid://ct12ip4d0q7p0" path="res://Scenes/Meshes/Fireplace/Fireplace.tscn" id="10_pyf61"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blxpw"]
 diffuse_mode = 3
@@ -52,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48572, 3)
 environment = SubResource("Environment_dp7kp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.245062, 0.897572, 0.366483, -0.42016, -0.242345, 0.874491, 0.873734, -0.368286, 0.317734, -24.2938, 62.5094, 0)
+transform = Transform3D(0.245062, 0.897571, 0.366484, -0.42016, -0.242345, 0.874491, 0.873734, -0.368286, 0.317734, -21.7747, 62.9614, -12.7941)
 light_color = Color(0.521569, 0.419608, 0.196078, 1)
 light_energy = 6.221
 light_volumetric_fog_energy = 16.0
@@ -1036,12 +1038,6 @@ transform = Transform3D(-5.32907e-15, -0.107226, -2.98023e-08, -4.31915e-08, -3.
 mesh = SubResource("QuadMesh_45sir")
 skeleton = NodePath("../Wall1")
 
-[node name="DarkBoolshelve" parent="." instance=ExtResource("6_evkmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945076, -3.32787)
-
-[node name="DarkBoolshelve2" parent="." instance=ExtResource("6_evkmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85936, 1.57441, -0.0359553)
-
 [node name="Rug" parent="." instance=ExtResource("7_fcn5c")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.397, 0.137686, -0.172343)
 
@@ -1051,3 +1047,26 @@ interaction_radius = 1.36
 
 [node name="Trashbin" parent="." instance=ExtResource("8_q3cwp")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.15697, 0.111, 3.09178)
+
+[node name="Couch" parent="." instance=ExtResource("9_ifm8p")]
+transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, 9.66232, 0.111, 63.4815)
+
+[node name="Couch2" parent="." instance=ExtResource("9_ifm8p")]
+transform = Transform3D(1.73205, 0, 1, 0, 2, 0, -1, 0, 1.73205, 9.87836, 0.111001, 57.0513)
+
+[node name="Couch3" parent="." instance=ExtResource("9_ifm8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="CatRegion2" parent="." instance=ExtResource("5_mkue8")]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 9.58019, 0.700648, 57.1869)
+
+[node name="Fireplace" parent="." instance=ExtResource("10_pyf61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1034, 0.111, 60.1592)
+
+[node name="CatRegion3" parent="." instance=ExtResource("5_mkue8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9936, 1.25829, 60.1376)
+
+[node name="DarkHollowBox" parent="." instance=ExtResource("10_ceydk")]
+transform = Transform3D(-2.0939e-08, 0.505606, 0, -0.479028, -2.21007e-08, 0, 0, 0, 2.8643, -5.77379, 1.81637, 0.0116106)
+
+[editable path="Libraries/LibraryHall5/LibraryRow3/TallLibrary6"]

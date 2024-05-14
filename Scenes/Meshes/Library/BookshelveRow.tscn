@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://baoxu2i47bu6y"]
+
+[ext_resource type="Script" path="res://Scenes/Meshes/Library/BookshelveRow.gd" id="1_soq17"]
+
+[node name="BookshelveRow" type="Node3D"]
+script = ExtResource("1_soq17")
+
+[node name="book_spot1" type="Node3D" parent="."]
+
+[node name="book_spot2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.127037)
+
+[node name="book_spot3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25403)
+
+[node name="book_spot4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.380911)
+
+[node name="book_spot5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.50631)
+
+[node name="book_spot6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.632685)
+
+[node name="book_spot7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.761666)
+
+[node name="book_spot8" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.888863)
+
+[node name="book_spot9" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01909)
+
+[node name="book_spot10" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.14049)
+
+[node name="book_spot11" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.26673)
