@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct12ip4d0q7p0"]
+
+[ext_resource type="PackedScene" uid="uid://dql5x2cu0bwhi" path="res://Scenes/Meshes/Fireplace/Fireplace.gltf" id="1_4rjef"]
+[ext_resource type="Material" uid="uid://gftthq2x2t2n" path="res://Scenes/DarkSpots/FullDark.tres" id="2_tgj1f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qogo"]
+size = Vector3(0.55658, 0.618012, 0.763428)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8temh"]
+size = Vector3(0.221252, 0.608826, 0.356522)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_74sxy"]
+
+[node name="Fireplace" type="Node3D"]
+
+[node name="fireplace" parent="." instance=ExtResource("1_4rjef")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fireplace"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fireplace/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0137634, 0.319503, -0.00305176)
+shape = SubResource("BoxShape3D_5qogo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="fireplace/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139801, 0.932334, 0.00164032)
+shape = SubResource("BoxShape3D_8temh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fireplace"]
+transform = Transform3D(-1.37921e-08, -1, 0, 0.315526, -4.37114e-08, 0, 0, 0, 0.315907, 0.0271825, 0.259557, -0.00453122)
+material_override = ExtResource("2_tgj1f")
+mesh = SubResource("PlaneMesh_74sxy")
