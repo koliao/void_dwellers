@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://32ketw5h6plb"]
+
+[ext_resource type="PackedScene" uid="uid://cbuurr66a37tu" path="res://Scenes/Meshes/Puff/Puff.gltf" id="1_8gcvw"]
+[ext_resource type="Material" uid="uid://gftthq2x2t2n" path="res://Scenes/DarkSpots/FullDark.tres" id="2_yvohb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4if5"]
+size = Vector3(0.375, 0.313965, 0.376953)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cveu0"]
+
+[node name="Puff" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="puff" parent="." instance=ExtResource("1_8gcvw")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156982, 0.000976563)
+shape = SubResource("BoxShape3D_n4if5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.18501, 0, 0, 0, 1, 0, 0, 0, 0.162139, 0, 0.312546, 0)
+material_override = ExtResource("2_yvohb")
+mesh = SubResource("PlaneMesh_cveu0")
