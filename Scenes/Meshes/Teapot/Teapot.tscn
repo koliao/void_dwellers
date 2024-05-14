@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bddwwwki0nxok"]
+
+[ext_resource type="PackedScene" uid="uid://b3xb4sclgv2c2" path="res://Scenes/Meshes/Teapot/Teapot.gltf" id="1_xcamb"]
+[ext_resource type="PackedScene" uid="uid://besxa8f5nq4vd" path="res://Scenes/DarkSpots/DarkHollowBox.tscn" id="2_q4ov8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4o3h"]
+size = Vector3(0.436485, 0.356628, 0.846039)
+
+[node name="Teapot" type="Node3D"]
+
+[node name="teapot" parent="." instance=ExtResource("1_xcamb")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306435, 0.169464, 0.0572357)
+shape = SubResource("BoxShape3D_b4o3h")
+
+[node name="DarkHollowBox" parent="." instance=ExtResource("2_q4ov8")]
+transform = Transform3D(0.241186, 0, 0, 0, 0.157842, 0, 0, 0, 0.310261, 0.0275781, 0.241553, 0)

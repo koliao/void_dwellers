@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctiexm23hfuks"]
+
+[ext_resource type="PackedScene" uid="uid://ctjuirtii73w3" path="res://Scenes/Meshes/Teapot/tea_cup.gltf" id="1_sc2xq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6ouq"]
+size = Vector3(0.216309, 0.188354, 0.20079)
+
+[node name="Teacup" type="Node3D"]
+
+[node name="teacup" parent="." instance=ExtResource("1_sc2xq")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170898, 0.093689, -0.000282288)
+shape = SubResource("BoxShape3D_n6ouq")
