@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnguid4c32um1"]
+
+[ext_resource type="PackedScene" uid="uid://bk4oa11jd2yn1" path="res://Scenes/Meshes/Couch/couch.gltf" id="1_o4air"]
+[ext_resource type="Material" uid="uid://gftthq2x2t2n" path="res://Scenes/DarkSpots/FullDark.tres" id="2_3snjq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_duqan"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s81qb"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iq1x1"]
+size = Vector3(0.640625, 0.300343, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ocb4j"]
+size = Vector3(0.252869, 0.21814, 1)
+
+[node name="Couch" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="couch" parent="." instance=ExtResource("1_o4air")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00135858, 0, -0.180805, 0, 1.10405, 0, 0.341411, 0, 0.00071948, -0.172865, 0.204931, 0)
+material_override = ExtResource("2_3snjq")
+mesh = SubResource("PlaneMesh_duqan")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.45116e-11, -1.10405, 4.29694e-09, -0.00124705, 4.82595e-08, 0.0983029, -0.313389, 4.25779e-15, -0.00039117, -0.0503555, 0.275346, 0)
+material_override = SubResource("StandardMaterial3D_s81qb")
+mesh = SubResource("PlaneMesh_duqan")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116211, 0.154688, 0)
+shape = SubResource("BoxShape3D_iq1x1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0777283, 0.328918, 0)
+shape = SubResource("BoxShape3D_ocb4j")
