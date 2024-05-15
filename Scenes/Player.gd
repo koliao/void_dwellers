@@ -30,7 +30,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if mouse_captured: _rotate_camera()
 	if Input.is_action_just_pressed("jump"): jumping = true
 	if Input.is_action_just_pressed("exit"): get_tree().quit()
-
+	if(Input.is_action_just_pressed("throw")):
+		throw_food()
+	
 func _physics_process(delta: float) -> void:
 	if mouse_captured: _handle_joypad_camera_rotation(delta)
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
@@ -76,3 +78,6 @@ func _jump(delta: float) -> Vector3:
 
 func pick_up_food(food_type):
 	$Camera.food_picked_up(food_type)
+	
+func throw_food():
+	$Camera.throw_food()

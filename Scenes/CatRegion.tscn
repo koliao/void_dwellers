@@ -1,41 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd838utlh5bjd"]
+[gd_scene load_steps=7 format=3 uid="uid://cd838utlh5bjd"]
 
 [ext_resource type="PackedScene" uid="uid://bhugx2t5om71i" path="res://Scenes/CatEye.tscn" id="1_64ywp"]
 [ext_resource type="Script" path="res://Scenes/CatRegion.gd" id="1_plv5s"]
+[ext_resource type="PackedScene" uid="uid://brnubiq5lyvtd" path="res://Scenes/CatMouth.tscn" id="3_gb2ph"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4yqxv"]
-viewport_path = NodePath("CatEyes")
+viewport_path = NodePath("CatFace")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ep13j"]
 radius = 1.09434
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3dpc2"]
+radius = 0.607426
+
 [node name="CatRegion" type="Node3D"]
 script = ExtResource("1_plv5s")
 
-[node name="CatEyes" type="SubViewport" parent="."]
+[node name="CatFace" type="SubViewport" parent="."]
 size = Vector2i(304, 256)
 
-[node name="ColorRect" type="ColorRect" parent="CatEyes"]
+[node name="ColorRect" type="ColorRect" parent="CatFace"]
 offset_right = 400.0
 offset_bottom = 256.0
 color = Color(0, 0, 0, 1)
 
-[node name="CatEyeLeft" parent="CatEyes" instance=ExtResource("1_64ywp")]
+[node name="CatEyeLeft" parent="CatFace" instance=ExtResource("1_64ywp")]
 position = Vector2(128, 0)
 scale = Vector2(-1, 1)
 
-[node name="CatEyeRight" parent="CatEyes" instance=ExtResource("1_64ywp")]
+[node name="CatEyeRight" parent="CatFace" instance=ExtResource("1_64ywp")]
 position = Vector2(180, 0)
+
+[node name="CatMouth" parent="CatFace" instance=ExtResource("3_gb2ph")]
+position = Vector2(80, 150)
+open_speed = 10.0
 
 [node name="CatRegionSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_4yqxv")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="OpenDetectionArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenDetectionArea"]
 shape = SubResource("SphereShape3D_ep13j")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="FoodDetectionArea" type="Area3D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodDetectionArea"]
+shape = SubResource("SphereShape3D_3dpc2")
+
+[connection signal="body_entered" from="OpenDetectionArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="OpenDetectionArea" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="FoodDetectionArea" to="." method="_on_food_detection_area_body_entered"]
+[connection signal="body_shape_entered" from="FoodDetectionArea" to="." method="_on_food_detection_area_body_shape_entered"]

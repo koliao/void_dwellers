@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://brnubiq5lyvtd"]
+
+[ext_resource type="Script" path="res://Scenes/CatMouth.gd" id="1_d4cfp"]
+[ext_resource type="Texture2D" uid="uid://bpmj3xepau3nt" path="res://Assets/mouth_mask_top.png" id="1_h37t5"]
+[ext_resource type="Texture2D" uid="uid://8i0kp4qkcc4d" path="res://Assets/mouth_mask_bottom.png" id="2_257dm"]
+[ext_resource type="AudioStream" uid="uid://4liuh8o4dd6k" path="res://Assets/Audio/CRT 1 (9).mp3" id="4_ocigp"]
+[ext_resource type="AudioStream" uid="uid://dfoi7p0betpxx" path="res://Assets/Audio/crunch.ogg" id="5_eccp6"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_npc4m"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("4_ocigp")
+stream_0/weight = 1.0
+
+[node name="CatMouth" type="Node2D"]
+script = ExtResource("1_d4cfp")
+opened = false
+open_speed = 1.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 128.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 36.0
+offset_right = 128.0
+offset_bottom = 107.0
+color = Color(0.596816, 0.975841, 0.798288, 1)
+
+[node name="MouthMaskTop" type="Sprite2D" parent="."]
+texture = ExtResource("1_h37t5")
+centered = false
+
+[node name="MouthMaskBottom" type="Sprite2D" parent="."]
+texture = ExtResource("2_257dm")
+centered = false
+
+[node name="EatTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="OpenMouthSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_npc4m")
+volume_db = 9.754
+pitch_scale = 0.8
+
+[node name="CrunchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eccp6")
+
+[connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]

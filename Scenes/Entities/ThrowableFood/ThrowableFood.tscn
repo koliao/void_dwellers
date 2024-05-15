@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk0ar4cjaa3cp"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/ThrowableFood/ThrowableFood.gd" id="1_57thr"]
+[ext_resource type="Texture2D" uid="uid://co4283gihq8en" path="res://Assets/food_1.png" id="1_mpm43"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o2t60"]
+size = Vector3(0.322754, 0.229004, 0.338928)
+
+[node name="ThrowableFood" type="RigidBody3D" groups=["ThrowableFood"]]
+collision_layer = 260
+collision_mask = 260
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_57thr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
+shape = SubResource("BoxShape3D_o2t60")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
+billboard = 1
+texture_filter = 1
+texture = ExtResource("1_mpm43")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_energy = 0.5
+light_negative = true
+light_specular = 1.0
+spot_range = 3.426
+spot_attenuation = 0.406126
+spot_angle = 4.0447
+spot_angle_attenuation = 3.0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5n04t8kf1bjq"]
+
+[ext_resource type="PackedScene" uid="uid://bhugx2t5om71i" path="res://Scenes/CatEye.tscn" id="1_vd32c"]
+[ext_resource type="PackedScene" uid="uid://brnubiq5lyvtd" path="res://Scenes/CatMouth.tscn" id="2_7pt15"]
+
+[node name="CatFace" type="SubViewport"]
+size = Vector2i(304, 256)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 400.0
+offset_bottom = 256.0
+color = Color(0, 0, 0, 1)
+
+[node name="CatEyeLeft" parent="." instance=ExtResource("1_vd32c")]
+position = Vector2(128, 0)
+scale = Vector2(-1, 1)
+
+[node name="CatEyeRight" parent="." instance=ExtResource("1_vd32c")]
+position = Vector2(180, 0)
+
+[node name="CatMouth" parent="." instance=ExtResource("2_7pt15")]
+open_speed = 10.0

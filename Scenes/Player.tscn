@@ -10,6 +10,7 @@ height = 1.8
 
 [node name="Player" type="CharacterBody3D" groups=["CanOpenCatRegion", "Player"]]
 script = ExtResource("1_2f8j2")
+speed = 5.0
 jump_height = 1.0
 
 [node name="CShape" type="CollisionShape3D" parent="."]
@@ -18,6 +19,7 @@ shape = SubResource("CapsuleShape3D_3rsb5")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+rotation_edit_mode = 1
 fov = 90.0
 script = ExtResource("2_ss0nn")
 
