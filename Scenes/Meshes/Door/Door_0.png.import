@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxrr4whkrkyvd"
-path="res://.godot/imported/Puff_0.png-05c9e92f7deeccd0a274d8c5491288dd.ctex"
+uid="uid://db3tv1ca5tj1r"
+path="res://.godot/imported/Door_0.png-6a9ef60ceb40179ee76e5c3e766705ff.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "588b370402775de15fc1742663930fb8"
+"md5": "002570b08fdfe00b3396523c2755dbb8"
 }
 
 [deps]
 
-source_file="res://Scenes/Meshes/Puff/Puff_0.png"
-dest_files=["res://.godot/imported/Puff_0.png-05c9e92f7deeccd0a274d8c5491288dd.ctex"]
+source_file="res://Scenes/Meshes/Door/Door_0.png"
+dest_files=["res://.godot/imported/Door_0.png-6a9ef60ceb40179ee76e5c3e766705ff.ctex"]
 
 [params]
 
