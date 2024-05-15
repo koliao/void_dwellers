@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://s4l2550mgu7h"]
+
+[ext_resource type="PackedScene" uid="uid://bnrbyuh653i5r" path="res://Scenes/Meshes/Stairs/Stairs.gltf" id="1_or10h"]
+[ext_resource type="Material" uid="uid://gftthq2x2t2n" path="res://Scenes/DarkSpots/FullDark.tres" id="2_d2hw8"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_3x74u"]
+left_to_right = 0.0
+
+[node name="Stairs" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="stairs" parent="." instance=ExtResource("1_or10h")]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0893469, 0, 0, 0, 0.358515, 0, 0, 0, 0.121732, 0.0117081, 0.176563, 2.5779e-06)
+material_override = ExtResource("2_d2hw8")
+mesh = SubResource("PrismMesh_3x74u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101636, -0.0146807, 0.00127968)
+depth = 0.14
+polygon = PackedVector2Array(-0.0810095, 0.0154942, 0.0461349, 0.0154942, 0.0450301, 0.379375, 0.0215673, 0.379206)
