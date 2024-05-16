@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://brnubiq5lyvtd"]
+[gd_scene load_steps=9 format=3 uid="uid://brnubiq5lyvtd"]
 
 [ext_resource type="Script" path="res://Scenes/CatMouth.gd" id="1_d4cfp"]
 [ext_resource type="Texture2D" uid="uid://bpmj3xepau3nt" path="res://Assets/mouth_mask_top.png" id="1_h37t5"]
 [ext_resource type="Texture2D" uid="uid://8i0kp4qkcc4d" path="res://Assets/mouth_mask_bottom.png" id="2_257dm"]
 [ext_resource type="AudioStream" uid="uid://4liuh8o4dd6k" path="res://Assets/Audio/CRT 1 (9).mp3" id="4_ocigp"]
 [ext_resource type="AudioStream" uid="uid://dfoi7p0betpxx" path="res://Assets/Audio/crunch.ogg" id="5_eccp6"]
+[ext_resource type="AudioStream" uid="uid://d4bswrlp3n3mg" path="res://Assets/Audio/pop.ogg" id="6_4nu4o"]
+[ext_resource type="AudioStream" uid="uid://c58ljn7tgqqcu" path="res://Assets/Audio/CREATURE 1/CRT 1 (14).mp3" id="7_o5dsr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_npc4m"]
 random_pitch = 1.2
@@ -48,5 +50,11 @@ pitch_scale = 0.8
 
 [node name="CrunchSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_eccp6")
+
+[node name="SpitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4nu4o")
+
+[node name="DisgustSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_o5dsr")
 
 [connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]

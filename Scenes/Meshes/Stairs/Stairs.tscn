@@ -14,6 +14,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0893469, 0, 0, 0, 0.358515, 0, 0, 0, 0.121732, 0.0117081, 0.176563, 2.5779e-06)
 material_override = ExtResource("2_d2hw8")
+transparency = 0.15
 mesh = SubResource("PrismMesh_3x74u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
