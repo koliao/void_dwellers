@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv520dh51e2b8"]
+
+[ext_resource type="PackedScene" uid="uid://bq4ec2wsesucr" path="res://Scenes/Meshes/Trees/tree_2.gltf" id="1_4f44o"]
+[ext_resource type="PackedScene" uid="uid://besxa8f5nq4vd" path="res://Scenes/DarkSpots/DarkHollowBox.tscn" id="2_4vuip"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghup4"]
+size = Vector3(0.49884, 1.33496, 0.519409)
+
+[node name="Tree2" type="Node3D"]
+
+[node name="tree2" parent="." instance=ExtResource("1_4f44o")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00466919, 0.663086, -6.10352e-05)
+shape = SubResource("BoxShape3D_ghup4")
+
+[node name="DarkHollowBox" parent="." instance=ExtResource("2_4vuip")]
+transform = Transform3D(-8.50409e-09, 0.171254, 0, -0.194551, -7.48574e-09, 0, 0, 0, 0.16126, 0.0981185, 0.761169, 0.000267297)
