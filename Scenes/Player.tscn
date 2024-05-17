@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdk6hwb4hi2wc"]
+[gd_scene load_steps=6 format=3 uid="uid://cdk6hwb4hi2wc"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_2f8j2"]
 [ext_resource type="Script" path="res://Scenes/PlayerCamera.gd" id="2_ss0nn"]
 [ext_resource type="Texture2D" uid="uid://co4283gihq8en" path="res://Assets/food_1.png" id="2_tdk8y"]
+[ext_resource type="PackedScene" uid="uid://d2bmud1xcno8d" path="res://Scenes/UI/UI.tscn" id="4_u1mgs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
 radius = 0.3
@@ -10,8 +11,12 @@ height = 1.8
 
 [node name="Player" type="CharacterBody3D" groups=["CanOpenCatRegion", "Player"]]
 script = ExtResource("1_2f8j2")
-speed = 5.0
+speed = 7.0
+acceleration = 400.0
 jump_height = 1.0
+
+[node name="Ui" parent="." instance=ExtResource("4_u1mgs")]
+mouse_filter = 1
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

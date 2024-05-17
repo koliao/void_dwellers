@@ -2,7 +2,7 @@ extends Node2D
 
 @export var opened = true
 @export_range(0.0, 1.0) var openess_time = 0.0
-@export var open_speed = 3.0
+@export var open_speed = 4.0
 
 const OPENED_TOP_OFFSET    = -60
 const OPENED_BOTTOM_OFFSET = 86

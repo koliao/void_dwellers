@@ -1048,18 +1048,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.60294)
 [node name="TallLibrary6" parent="Libraries/LibraryHall20/LibraryRow3" instance=ExtResource("2_oatga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.24033)
 
-[node name="CatRegion" parent="." instance=ExtResource("5_mkue8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.24138, 0.85904, 3.11794)
-
 [node name="Rug" parent="." instance=ExtResource("7_fcn5c")]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -9.06028, 0.137686, -71.9251)
 
 [node name="CatRegion" parent="Rug" instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0.0662956, 0.0826674, -1.61559)
 interaction_radius = 10.0
-
-[node name="Trashbin" parent="." instance=ExtResource("8_q3cwp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.15697, 0.111, 3.09178)
 
 [node name="Couch" parent="." instance=ExtResource("9_ifm8p")]
 transform = Transform3D(2.59808, 0, -1.5, 0, 3, 0, 1.5, 0, 2.59808, 9.66232, 0.111, 63.4815)
@@ -1069,9 +1063,6 @@ transform = Transform3D(3, 0, 1.90735e-06, 0, 3, 0, -1.90735e-06, 0, 3, 10.6623,
 
 [node name="Couch2" parent="." instance=ExtResource("9_ifm8p")]
 transform = Transform3D(2.59808, 0, 1.5, 0, 3, 0, -1.5, 0, 2.59808, 9.87836, 0.111001, 57.0513)
-
-[node name="Couch3" parent="." instance=ExtResource("9_ifm8p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="CatRegion2" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 9.58019, 0.930815, 57.1869)
@@ -1413,7 +1404,7 @@ mesh = SubResource("PlaneMesh_5dq3n")
 skeleton = NodePath("")
 
 [node name="Wall3" type="MeshInstance3D" parent="Walls2"]
-transform = Transform3D(-21.5928, -0.837492, 0, 12.4666, -1.45058, 0, 0, 0, 73.9633, -7.73997, 79.1576, 0.0375595)
+transform = Transform3D(-21.5928, -0.837492, 0, 12.4666, -1.45058, 0, 0, 0, 73.9633, -7.73997, 79.1576, 2.24751)
 mesh = SubResource("PlaneMesh_5dq3n")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_ou6si")
@@ -1710,9 +1701,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.372325, 0.653403, -48
 [node name="FoodContainer" parent="." instance=ExtResource("22_po7cy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40693, 0, 74.5035)
 
-[node name="CatRegion5" parent="." instance=ExtResource("5_mkue8")]
-transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 10.2696, 0.861413, 71.9231)
-
 [node name="CatRegion6" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -2.874, 1.55852, 57.4461)
 
@@ -1790,6 +1778,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.797266, 1.81628, -37
 
 [node name="CatRegion29" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.88263, 2.42069, -23.9386)
+
+[node name="CatRegion" parent="." instance=ExtResource("5_mkue8")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 10.3405, 0.849679, 72.0935)
 
 [editable path="Libraries/LibraryHall5/LibraryRow/TallLibrary"]
 [editable path="Libraries/LibraryHall5/LibraryRow3/TallLibrary6"]
