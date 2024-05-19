@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn02v7nvk4uvn"]
+
+[ext_resource type="PackedScene" uid="uid://clnw72mqqdwq4" path="res://Scenes/Meshes/Rock/rock.gltf" id="1_we81j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5m4mq"]
+radius = 0.365762
+height = 0.980303
+
+[node name="Rock" type="Node3D"]
+
+[node name="rock" parent="." instance=ExtResource("1_we81j")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325617, 0.0600423)
+shape = SubResource("CapsuleShape3D_5m4mq")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy8jrj4053tq"]
+
+[ext_resource type="PackedScene" uid="uid://cplfsiyua4pwo" path="res://Scenes/Meshes/Log/fallen_log.gltf" id="1_gh5rf"]
+[ext_resource type="PackedScene" uid="uid://besxa8f5nq4vd" path="res://Scenes/DarkSpots/DarkHollowBox.tscn" id="2_cet78"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jg1hx"]
+radius = 0.412354
+height = 5.22646
+
+[node name="FallenLog" type="Node3D"]
+
+[node name="fallenLog" parent="." instance=ExtResource("1_gh5rf")]
+
+[node name="DarkHollowBox" parent="." instance=ExtResource("2_cet78")]
+transform = Transform3D(0.393601, 0, 0, 0, 0.391778, 0, 0, 0, 0.149488, 0.218513, 0.506929, 0.00303507)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.270396, 0.309023, 0)
+shape = SubResource("CapsuleShape3D_jg1hx")

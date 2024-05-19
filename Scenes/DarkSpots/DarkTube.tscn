@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2h18yvareum3"]
+
+[ext_resource type="Shader" path="res://Scenes/DarkSpots/DarkHollowBox.gdshader" id="1_tcira"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkwkd"]
+render_priority = 0
+shader = ExtResource("1_tcira")
+shader_parameter/width = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m7qmb"]
+flip_faces = true
+radial_segments = 6
+cap_top = false
+cap_bottom = false
+
+[node name="DarkTube" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.744704, 0, 0, 0, 1, 0, 0.521556, 0)
+material_override = SubResource("ShaderMaterial_jkwkd")
+mesh = SubResource("CylinderMesh_m7qmb")

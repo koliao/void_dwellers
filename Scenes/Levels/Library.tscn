@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://wdbunfrnrn55"]
+[gd_scene load_steps=42 format=3 uid="uid://wdbunfrnrn55"]
 
+[ext_resource type="Script" path="res://Scenes/Levels/Library.gd" id="1_4htss"]
 [ext_resource type="Texture2D" uid="uid://bag65l2w8xetm" path="res://Assets/Textures/6/6_normal.bmp" id="1_muxu0"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Player.tscn" id="1_wccs8"]
 [ext_resource type="PackedScene" uid="uid://bjhevfes35y0e" path="res://Scenes/Meshes/Library/TallLibrary.tscn" id="2_oatga"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c7hh24j8eh2m5" path="res://Scenes/Meshes/Library/IndividualLibrary.tscn" id="19_g0eem"]
 [ext_resource type="AudioStream" uid="uid://bcpipd5tjn218" path="res://Assets/Audio/library.mp3" id="20_awuau"]
 [ext_resource type="PackedScene" uid="uid://djlenw7dytuwj" path="res://Scenes/FoodContainer.tscn" id="22_po7cy"]
+[ext_resource type="PackedScene" uid="uid://dar2ojbf5pkrv" path="res://Scenes/Entities/NextLevelPortal.tscn" id="23_vugo6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8qynx"]
 size = Vector3(172.932, 1, 208.727)
@@ -49,6 +51,11 @@ ambient_light_source = 2
 ambient_light_color = Color(0.506395, 0.399069, 0.323285, 1)
 ambient_light_energy = 0.1
 reflected_light_source = 1
+fog_density = 0.001
+volumetric_fog_density = 0.005
+volumetric_fog_albedo = Color(0.809011, 0.573231, 0.242627, 1)
+volumetric_fog_length = 252.08
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rwal4"]
 size = Vector3(13.383, 22.6566, 1)
@@ -84,6 +91,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Library" type="Node3D"]
+script = ExtResource("1_4htss")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.10358)
@@ -1072,6 +1080,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1034, 0.111, 60.1592)
 
 [node name="CatRegion3" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9936, 1.25829, 60.1376)
+monster_type = 1
 
 [node name="DarkHollowBox" parent="." instance=ExtResource("10_ceydk")]
 transform = Transform3D(-2.0939e-08, 0.505606, 0, -0.479028, -2.21007e-08, 0, 0, 0, 2.8643, -5.77379, 1.81637, 0.0116106)
@@ -1691,12 +1700,13 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.390654, -0.0143164, -49.010
 [node name="Trashbin2" parent="." instance=ExtResource("8_q3cwp")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -17.48, 0, -43.3276)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_awuau")
 autoplay = true
 
 [node name="CatRegion4" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.372325, 0.653403, -48.9681)
+monster_type = 2
 
 [node name="FoodContainer" parent="." instance=ExtResource("22_po7cy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40693, 0, 74.5035)
@@ -1706,6 +1716,7 @@ transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -2.874, 1.55852, 57.
 
 [node name="CatRegion7" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, -17.5736, 0.901743, 74.7379)
+monster_type = 2
 
 [node name="CatRegion8" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 2.11827, 0.911706, -51.4658)
@@ -1727,6 +1738,7 @@ transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 6.71451, 0.802398, 6
 
 [node name="CatRegion14" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.355, 0, 0, 0, 0.355, 0, 0, 0, 0.355, 5.7913, 0.906015, 61.0432)
+monster_type = 1
 
 [node name="CatRegion15" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -7.28528, 0.892107, -61.0845)
@@ -1754,33 +1766,47 @@ transform = Transform3D(2.09461e-08, 0.365475, -2.48883e-07, 0.479191, -1.59754e
 
 [node name="CatRegion21" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.9489, 0.936464, -73.046)
+monster_type = 1
 
 [node name="CatRegion24" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, -10.5283, 2.49958, -63.9546)
 
 [node name="CatRegion22" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.805, 0.936464, -70.7086)
+monster_type = 2
 
 [node name="CatRegion23" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18906, 1.24013, -71.7843)
+monster_type = 2
 
 [node name="CatRegion25" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.88352, 1.82104, 0.192357)
 
 [node name="CatRegion26" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.81448, 2.43109, 44.8765)
+monster_type = 2
 
 [node name="CatRegion27" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.63942, 3.02577, 37.8496)
 
 [node name="CatRegion28" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.797266, 1.81628, -37.3004)
+monster_type = 1
 
 [node name="CatRegion29" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.88263, 2.42069, -23.9386)
 
 [node name="CatRegion" parent="." instance=ExtResource("5_mkue8")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 10.3405, 0.849679, 72.0935)
+
+[node name="NextLevelPortal" parent="." instance=ExtResource("23_vugo6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.05144, 0.0315138, 73.4744)
+
+[node name="ChangeLevelTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ChangeLevelTimer" to="." method="_on_change_level_timer_timeout"]
 
 [editable path="Libraries/LibraryHall5/LibraryRow/TallLibrary"]
 [editable path="Libraries/LibraryHall5/LibraryRow3/TallLibrary6"]

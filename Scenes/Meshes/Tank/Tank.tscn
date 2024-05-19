@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cto2xsy78g30k"]
+
+[ext_resource type="PackedScene" uid="uid://bo5w0hyvp4wql" path="res://Scenes/Meshes/Tank/tank.gltf" id="1_584r5"]
+[ext_resource type="PackedScene" uid="uid://dv0ol77wxupsj" path="res://Scenes/Meshes/Pipes/Pipe.tscn" id="2_jxb1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqs1w"]
+size = Vector3(1, 1.4292, 1)
+
+[node name="Tank" type="Node3D"]
+
+[node name="tank" parent="." instance=ExtResource("1_584r5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.724854, 0)
+shape = SubResource("BoxShape3D_lqs1w")
+
+[node name="Pipe" parent="." instance=ExtResource("2_jxb1j")]
+transform = Transform3D(0.212, 0, 0, 0, 0.119, 0, 0, 0, 0.119, 0.553948, 0.31504, 0.0217034)
+
+[node name="Pipe2" parent="." instance=ExtResource("2_jxb1j")]
+transform = Transform3D(-9.26681e-09, 0.119, 0, -0.212, -5.20166e-09, 0, 0, 0, 0.119, -0.0653871, 1.44813, 0.00342897)

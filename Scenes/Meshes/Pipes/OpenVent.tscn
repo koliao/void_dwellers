@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgoyl7tw3j5m1"]
+
+[ext_resource type="PackedScene" uid="uid://cvhpgd5w4fpuu" path="res://Scenes/Meshes/Pipes/open_vent.gltf" id="1_76syl"]
+[ext_resource type="PackedScene" uid="uid://besxa8f5nq4vd" path="res://Scenes/DarkSpots/DarkHollowBox.tscn" id="2_m73xl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6u1sw"]
+size = Vector3(0.758789, 0.699158, 0.755859)
+
+[node name="OpenVent" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000488281, 0.408112, 0.12207)
+shape = SubResource("BoxShape3D_6u1sw")
+
+[node name="open_vent" parent="." instance=ExtResource("1_76syl")]
+
+[node name="DarkHollowBox" parent="." instance=ExtResource("2_m73xl")]
+transform = Transform3D(0.487471, 0, 0, 0, -2.27007e-08, 0.4375, 0, -0.519332, -1.91237e-08, 0, 0.40426, 0.0150208)

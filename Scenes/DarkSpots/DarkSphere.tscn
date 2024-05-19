@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://du3xubgvserqp"]
+
+[ext_resource type="Shader" path="res://Scenes/DarkSpots/DarkSphere.gdshader" id="1_jiiw7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyvk4"]
+render_priority = -10
+shader = ExtResource("1_jiiw7")
+shader_parameter/width = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_evp7c"]
+
+[node name="DarkSphere" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.195, 0, 0, 0, 2.195, 0, 0, 0, 2.195, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_kyvk4")
+mesh = SubResource("SphereMesh_evp7c")

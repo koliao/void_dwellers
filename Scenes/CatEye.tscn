@@ -1,31 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhugx2t5om71i"]
 
 [ext_resource type="Script" path="res://Scenes/CatEye.gd" id="1_v037g"]
-[ext_resource type="Texture2D" uid="uid://q5bmbwavumpv" path="res://Assets/eye.png" id="2_q5c4m"]
-[ext_resource type="Texture2D" uid="uid://dx4d13vmsjmkl" path="res://Assets/eyelid_mask_bottom.png" id="3_b0fvu"]
-[ext_resource type="Texture2D" uid="uid://gcjmssga6iig" path="res://Assets/eyelid_mask_top.png" id="4_di1r7"]
+[ext_resource type="Texture2D" uid="uid://bm226idf41sjf" path="res://Assets/eye_1.png" id="2_1segr"]
+[ext_resource type="Texture2D" uid="uid://dgmqpobvprdar" path="res://Assets/top_eyelid.png" id="3_ndx3b"]
+[ext_resource type="Texture2D" uid="uid://ctg1p0be4m30j" path="res://Assets/bottom_eyelid.png" id="4_vp0sx"]
 
 [node name="CatEyeViewport" type="Node2D"]
 script = ExtResource("1_v037g")
 opened = false
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_top = 111.0
-offset_right = 40.0
-offset_bottom = 151.0
-color = Color(0.0627451, 0.184314, 0.0901961, 1)
-
 [node name="EyeSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_q5c4m")
+texture_filter = 1
+texture = ExtResource("2_1segr")
 centered = false
 offset = Vector2(0, 32)
 
 [node name="EyelidMaskTop" type="Sprite2D" parent="."]
-texture = ExtResource("4_di1r7")
+texture_filter = 1
+texture = ExtResource("3_ndx3b")
 centered = false
 offset = Vector2(0, -60)
 
 [node name="EyelidMaskBottom" type="Sprite2D" parent="."]
-texture = ExtResource("3_b0fvu")
+texture_filter = 1
+texture = ExtResource("4_vp0sx")
 centered = false
 offset = Vector2(0, 86)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv0ol77wxupsj"]
+
+[ext_resource type="PackedScene" uid="uid://dmjbujkr6v54b" path="res://Scenes/Meshes/Pipes/pipe_1.gltf" id="1_l0vty"]
+[ext_resource type="PackedScene" uid="uid://c2h18yvareum3" path="res://Scenes/DarkSpots/DarkTube.tscn" id="2_fdncj"]
+[ext_resource type="Material" uid="uid://gftthq2x2t2n" path="res://Scenes/DarkSpots/FullDark.tres" id="3_ro5uy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xi703"]
+size = Vector3(1.05371, 1.19244, 1.32513)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_buw27"]
+flip_faces = true
+radial_segments = 6
+cap_top = false
+
+[node name="Pipe" type="Node3D"]
+
+[node name="pipe" parent="." instance=ExtResource("1_l0vty")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0268555, 0.501556, -0.0142517)
+shape = SubResource("BoxShape3D_xi703")
+
+[node name="DarkTube" parent="." instance=ExtResource("2_fdncj")]
+transform = Transform3D(-3.93403e-08, 0.391555, 0, -0.9, -1.71154e-08, 0, 0, 0, 0.9, 0.0545845, 0.49572, 0.00189625)
+
+[node name="DarkTube2" parent="." instance=ExtResource("2_fdncj")]
+transform = Transform3D(3.93402e-08, -0.391555, 7.86805e-08, -0.9, -1.71154e-08, 0, 3.43923e-15, -3.42308e-08, -0.9, -0.077737, 0.49572, 0.00189625)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.0968e-08, 0.0441288, 0, -0.94, 3.33163e-09, 0, 0, 0, 0.94, 0.140993, 0.492579, 0)
+material_override = ExtResource("3_ro5uy")
+mesh = SubResource("CylinderMesh_buw27")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-7.0968e-08, -0.0441288, -8.21774e-08, -0.94, 3.33163e-09, 0, 6.20422e-15, 3.85787e-09, -0.94, -0.37188, 0.492579, 0)
+material_override = ExtResource("3_ro5uy")
+mesh = SubResource("CylinderMesh_buw27")

@@ -4,8 +4,9 @@ const FoodType = preload("res://Scripts/Enums.gd").FoodType
 
 const watermelon_texture = preload("res://Assets/food_1.png")
 const strawberry_texture = preload("res://Assets/food_2.png")
+const pineapple_texture = preload("res://Assets/food_3.png")
 
-const food_textures = [watermelon_texture, strawberry_texture]
+const food_textures = [watermelon_texture, strawberry_texture, pineapple_texture]
 
 func _ready():
 	pass

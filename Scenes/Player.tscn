@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdk6hwb4hi2wc"]
+[gd_scene load_steps=9 format=3 uid="uid://cdk6hwb4hi2wc"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_2f8j2"]
 [ext_resource type="Script" path="res://Scenes/PlayerCamera.gd" id="2_ss0nn"]
 [ext_resource type="Texture2D" uid="uid://co4283gihq8en" path="res://Assets/food_1.png" id="2_tdk8y"]
 [ext_resource type="PackedScene" uid="uid://d2bmud1xcno8d" path="res://Scenes/UI/UI.tscn" id="4_u1mgs"]
+[ext_resource type="AudioStream" uid="uid://db03rwv5tti8r" path="res://Assets/Audio/step.wav" id="5_hoore"]
+[ext_resource type="AudioStream" uid="uid://d4bswrlp3n3mg" path="res://Assets/Audio/pop.ogg" id="6_dyhym"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
 radius = 0.3
 height = 1.8
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bxhqr"]
+random_pitch = 1.28
+random_volume_offset_db = 1.51
+streams_count = 1
+stream_0/stream = ExtResource("5_hoore")
+stream_0/weight = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["CanOpenCatRegion", "Player"]]
 script = ExtResource("1_2f8j2")
@@ -35,3 +44,16 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.12, -0.05, -0.1)
 billboard = 1
 texture_filter = 0
 texture = ExtResource("2_tdk8y")
+
+[node name="Throw" type="AudioStreamPlayer" parent="Camera"]
+stream = ExtResource("6_dyhym")
+volume_db = -3.522
+pitch_scale = 0.73
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_bxhqr")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dyhym")
+volume_db = -11.485
+pitch_scale = 0.53

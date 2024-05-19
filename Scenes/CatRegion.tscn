@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd838utlh5bjd"]
+[gd_scene load_steps=10 format=3 uid="uid://cd838utlh5bjd"]
 
 [ext_resource type="PackedScene" uid="uid://bhugx2t5om71i" path="res://Scenes/CatEye.tscn" id="1_64ywp"]
 [ext_resource type="Script" path="res://Scenes/CatRegion.gd" id="1_plv5s"]
 [ext_resource type="PackedScene" uid="uid://brnubiq5lyvtd" path="res://Scenes/CatMouth.tscn" id="3_gb2ph"]
+[ext_resource type="AudioStream" uid="uid://doru8hqdnpq3n" path="res://Assets/Audio/green_open.mp3" id="4_ky4w2"]
+[ext_resource type="AudioStream" uid="uid://clqrs6ausgsrn" path="res://Assets/Audio/purple_open.mp3" id="5_j0wqh"]
+[ext_resource type="AudioStream" uid="uid://dsnpcpnass1n" path="res://Assets/Audio/blue_open.mp3" id="6_b3cyf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4yqxv"]
 viewport_path = NodePath("CatFace")
@@ -32,12 +35,13 @@ scale = Vector2(-1, 1)
 position = Vector2(180, 0)
 
 [node name="CatMouth" parent="CatFace" instance=ExtResource("3_gb2ph")]
-position = Vector2(80, 150)
+position = Vector2(80, 133.725)
 open_speed = 10.0
 
 [node name="CatRegionSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
+texture_filter = 0
 texture = SubResource("ViewportTexture_4yqxv")
 
 [node name="OpenDetectionArea" type="Area3D" parent="."]
@@ -51,6 +55,18 @@ collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FoodDetectionArea"]
 shape = SubResource("SphereShape3D_3dpc2")
+
+[node name="GreenOpenEyesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ky4w2")
+volume_db = -9.138
+
+[node name="PurpleOpenEyesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_j0wqh")
+volume_db = -6.38
+
+[node name="BlueOpenEyesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_b3cyf")
+volume_db = -5.104
 
 [connection signal="body_entered" from="OpenDetectionArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="OpenDetectionArea" to="." method="_on_area_3d_body_exited"]

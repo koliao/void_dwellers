@@ -15,6 +15,11 @@ const FoodType = preload("res://Scripts/Enums.gd").FoodType
 var already_eaten = false
 var body_observed = null
 
+func _ready():
+	$CatFace/CatEyeLeft.eye_type = monster_type
+	$CatFace/CatEyeRight.eye_type = monster_type
+	$CatFace/CatMouth.monster_type = monster_type
+
 func _process(delta):
 	$CatFace/CatEyeLeft.opened = opened or already_eaten
 	$CatFace/CatEyeRight.opened = opened or already_eaten
@@ -25,6 +30,7 @@ func _process(delta):
 func _on_area_3d_body_entered(body):
 	if(body.is_in_group("CanOpenCatRegion")):
 		if(body.is_holding_fruit()):
+			play_open_eyes_sound()
 			opened = true
 		else:
 			body_observed = body
@@ -50,4 +56,13 @@ func _preferred_food_type():
 		MonsterType.PURPLE:
 			return FoodType.STRAWBERRY
 		MonsterType.BLUE:
-			return FoodType.STRAWBERRY
+			return FoodType.PINEAPPLE
+
+func play_open_eyes_sound():
+	match monster_type:
+		MonsterType.GREEN:
+			$GreenOpenEyesSound.play()
+		MonsterType.PURPLE:
+			$PurpleOpenEyesSound.play()
+		MonsterType.BLUE:
+			$BlueOpenEyesSound.play()

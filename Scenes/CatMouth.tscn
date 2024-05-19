@@ -1,17 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://brnubiq5lyvtd"]
+[gd_scene load_steps=14 format=3 uid="uid://brnubiq5lyvtd"]
 
 [ext_resource type="Script" path="res://Scenes/CatMouth.gd" id="1_d4cfp"]
-[ext_resource type="Texture2D" uid="uid://bpmj3xepau3nt" path="res://Assets/mouth_mask_top.png" id="1_h37t5"]
-[ext_resource type="Texture2D" uid="uid://8i0kp4qkcc4d" path="res://Assets/mouth_mask_bottom.png" id="2_257dm"]
-[ext_resource type="AudioStream" uid="uid://4liuh8o4dd6k" path="res://Assets/Audio/CRT 1 (9).mp3" id="4_ocigp"]
+[ext_resource type="Texture2D" uid="uid://chjfhqxwvcbdw" path="res://Assets/mouth_top.png" id="2_euu8c"]
+[ext_resource type="Texture2D" uid="uid://1eyusiumq8jf" path="res://Assets/mouth_bottom.png" id="3_spajh"]
+[ext_resource type="AudioStream" uid="uid://bq3peq2ldeh4i" path="res://Assets/Audio/blue_mouth_open.mp3" id="4_16jmv"]
 [ext_resource type="AudioStream" uid="uid://dfoi7p0betpxx" path="res://Assets/Audio/crunch.ogg" id="5_eccp6"]
 [ext_resource type="AudioStream" uid="uid://d4bswrlp3n3mg" path="res://Assets/Audio/pop.ogg" id="6_4nu4o"]
 [ext_resource type="AudioStream" uid="uid://c58ljn7tgqqcu" path="res://Assets/Audio/CREATURE 1/CRT 1 (14).mp3" id="7_o5dsr"]
+[ext_resource type="AudioStream" uid="uid://mf8caknyoeil" path="res://Assets/Audio/green_mouth_open.mp3" id="8_kleoa"]
+[ext_resource type="AudioStream" uid="uid://hova60gjhfdj" path="res://Assets/Audio/purple_mouth_open.mp3" id="9_daval"]
+[ext_resource type="AudioStream" uid="uid://c0ub4i00x42fc" path="res://Assets/Audio/spit_purple.mp3" id="10_a3idd"]
+[ext_resource type="AudioStream" uid="uid://dwxebknrqkqf1" path="res://Assets/Audio/spit_blue.mp3" id="10_adm65"]
+[ext_resource type="AudioStream" uid="uid://d15g345ch2oq8" path="res://Assets/Audio/spit_green.mp3" id="11_3kow1"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_npc4m"]
 random_pitch = 1.2
 streams_count = 1
-stream_0/stream = ExtResource("4_ocigp")
+stream_0/stream = ExtResource("4_16jmv")
 stream_0/weight = 1.0
 
 [node name="CatMouth" type="Node2D"]
@@ -20,6 +25,7 @@ opened = false
 open_speed = 1.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 offset_right = 128.0
 offset_bottom = 128.0
 color = Color(0, 0, 0, 1)
@@ -28,24 +34,34 @@ color = Color(0, 0, 0, 1)
 offset_left = 8.0
 offset_top = 36.0
 offset_right = 128.0
-offset_bottom = 107.0
+offset_bottom = 117.0
 color = Color(0.596816, 0.975841, 0.798288, 1)
 
 [node name="MouthMaskTop" type="Sprite2D" parent="."]
-texture = ExtResource("1_h37t5")
+texture_filter = 1
+position = Vector2(0, 20)
+texture = ExtResource("2_euu8c")
 centered = false
 
 [node name="MouthMaskBottom" type="Sprite2D" parent="."]
-texture = ExtResource("2_257dm")
+texture_filter = 1
+position = Vector2(0, 75)
+texture = ExtResource("3_spajh")
 centered = false
 
 [node name="EatTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 
-[node name="OpenMouthSound" type="AudioStreamPlayer" parent="."]
+[node name="SpitTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BlueOpenMouthSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_npc4m")
-volume_db = 9.754
 pitch_scale = 0.8
 
 [node name="CrunchSound" type="AudioStreamPlayer" parent="."]
@@ -57,4 +73,21 @@ stream = ExtResource("6_4nu4o")
 [node name="DisgustSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_o5dsr")
 
+[node name="GreenOpenMouthSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_kleoa")
+
+[node name="PurpleOpenMouthSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_daval")
+
+[node name="PurpleSpitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_a3idd")
+
+[node name="GreenSpitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_3kow1")
+
+[node name="BlueSpitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_adm65")
+
 [connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]
+[connection signal="timeout" from="SpitTimer" to="." method="_on_spit_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

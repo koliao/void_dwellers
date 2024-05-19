@@ -21,7 +21,7 @@ var jump_vel: Vector3 # Jumping velocity
 var current_speed : float = speed
 
 var monsters_fed : int = 0
-var current_fed_target = 3
+var current_fed_target = 16
 
 @onready var camera: Camera3D = $Camera
 
@@ -74,6 +74,9 @@ func _walk(delta: float) -> Vector3:
 	var _forward: Vector3 = camera.global_transform.basis * Vector3(move_dir.x, 0, move_dir.y)
 	var walk_dir: Vector3 = Vector3(_forward.x, 0, _forward.z).normalized()
 	walk_vel = walk_vel.move_toward(walk_dir * current_speed * move_dir.length(), acceleration * delta)
+	if(walk_vel.length() > 0):
+		if(not $Step.is_playing()):
+			$Step.play()
 	return walk_vel
 
 func _gravity(delta: float) -> Vector3:
@@ -82,7 +85,9 @@ func _gravity(delta: float) -> Vector3:
 
 func _jump(delta: float) -> Vector3:
 	if jumping:
-		if is_on_floor(): jump_vel = Vector3(0, sqrt(4 * jump_height * gravity), 0)
+		if is_on_floor():
+			jump_vel = Vector3(0, sqrt(4 * jump_height * gravity), 0)
+			$Jump.play()
 		jumping = false
 		return jump_vel
 	jump_vel = Vector3.ZERO if is_on_floor() else jump_vel.move_toward(Vector3.ZERO, gravity * delta)
@@ -102,10 +107,17 @@ func fruit_eaten():
 	$Ui/FeedCounter.current = monsters_fed
 	
 	if(monsters_fed >= current_fed_target):
-		change_level()
+		activate_end_level()
 
 func is_holding_fruit():
 	return $Camera.holded_fruit != null
 
+func activate_end_level():
+	get_parent().activate_end_level()
+
+func start_change_level():
+	get_parent().change_level()
+
 func change_level():
-	get_tree().change_scene_to_file("res://Scenes/Levels/Forest.tscn")
+	var next_level = get_parent().next_level_path
+	get_tree().change_scene_to_file(next_level)

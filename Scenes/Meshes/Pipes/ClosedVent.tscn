@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch7yfoel0dpsy"]
+
+[ext_resource type="PackedScene" uid="uid://0unpxd54vxqt" path="res://Scenes/Meshes/Pipes/closed_vent.gltf" id="1_pawjh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnoo3"]
+size = Vector3(0.758789, 0.699158, 0.755859)
+
+[node name="ClosedVent" type="Node3D"]
+
+[node name="closed_vent" parent="." instance=ExtResource("1_pawjh")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000488281, 0.408112, 0.12207)
+shape = SubResource("BoxShape3D_qnoo3")

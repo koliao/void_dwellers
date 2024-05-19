@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx4cokr8yev3b"]
+
+[ext_resource type="PackedScene" uid="uid://jx2w5b1q1mkr" path="res://Scenes/Meshes/Pot/plant_pot.gltf" id="1_p4lsu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8e2wy"]
+size = Vector3(1.16187, 0.626251, 1)
+
+[node name="PlantPot" type="Node3D"]
+
+[node name="plant_pot" parent="." instance=ExtResource("1_p4lsu")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0218506, 0.311496, 0)
+shape = SubResource("BoxShape3D_8e2wy")

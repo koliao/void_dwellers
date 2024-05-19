@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjvq4f438e4ua"]
+
+[ext_resource type="PackedScene" uid="uid://cic5lnirn7y86" path="res://Scenes/Meshes/Roof/roof.gltf" id="1_q2u3f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujqur"]
+size = Vector3(0.0615234, 0.742859, 0.0684083)
+
+[node name="Roof" type="Node3D"]
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_q2u3f")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469238, 0.37619, 0.781323)
+shape = SubResource("BoxShape3D_ujqur")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469238, 0.37619, -0.81142)
+shape = SubResource("BoxShape3D_ujqur")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46788, 0.37619, -0.81142)
+shape = SubResource("BoxShape3D_ujqur")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46788, 0.37619, 0.780441)
+shape = SubResource("BoxShape3D_ujqur")

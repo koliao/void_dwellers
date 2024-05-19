@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dar2ojbf5pkrv"]
+
+[ext_resource type="Shader" path="res://Scenes/Entities/NextLevelPortal.gdshader" id="1_i8bxw"]
+[ext_resource type="Script" path="res://Scenes/Entities/NextLevelPortal.gd" id="1_lb1wj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcujp"]
+render_priority = 0
+shader = ExtResource("1_i8bxw")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gw1ox"]
+flip_faces = true
+top_radius = 1.0
+bottom_radius = 1.0
+cap_top = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tq0my"]
+radius = 1.02225
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gbn7"]
+albedo_color = Color(1, 0.541114, 0.887886, 1)
+emission = Color(0.785153, 0.294338, 0.673169, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lnmw5"]
+top_radius = 1.0
+bottom_radius = 1.0
+
+[node name="NextLevelPortal" type="Node3D"]
+script = ExtResource("1_lb1wj")
+
+[node name="Inner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.96, 0, 0, 0, 0.9, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_qcujp")
+mesh = SubResource("CylinderMesh_gw1ox")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_tq0my")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.06, 0, 0, 0, 0.7, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_2gbn7")
+mesh = SubResource("CylinderMesh_lnmw5")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

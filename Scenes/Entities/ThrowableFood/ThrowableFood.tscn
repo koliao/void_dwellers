@@ -19,7 +19,7 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
 shape = SubResource("BoxShape3D_o2t60")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 billboard = 1
 texture_filter = 1
 texture = ExtResource("1_mpm43")
@@ -33,3 +33,12 @@ spot_range = 3.426
 spot_attenuation = 0.406126
 spot_angle = 4.0447
 spot_angle_attenuation = 3.0
+
+[node name="WaitToDespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="WaitToDespawnTimer" to="." method="_on_wait_to_despawn_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
